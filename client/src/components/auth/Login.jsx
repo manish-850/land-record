@@ -11,12 +11,10 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const { handleLogin } = useAuth();
 
-
   return (
     <div className="h-full w-full flex items-center justify-center">
       <div
-        className="w-full max-w-sm bg-white border border-neutral-200 shadow-lg rounded-2xl px-80"
-        style={{ padding: "10px 20px" }}
+        className="w-full max-w-sm bg-white border border-neutral-200 shadow-lg rounded-2xl py-5"
       >
         <div className="text-center pb-2">
           <h1 className="text-2xl font-bold text-neutral-900">Welcome Back</h1>
@@ -25,7 +23,7 @@ export default function Login() {
         <div className="p-6 pt-2">
           <form
             onSubmit={(e) => {
-              e.preventDefault()
+              e.preventDefault();
               handleLogin({ email, password });
             }}
             className="flex flex-col gap-3"
