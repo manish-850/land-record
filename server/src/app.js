@@ -13,7 +13,7 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
-
+console.log("FRONTEND_URL =", process.env.FRONTEND_URL);
 app.get("/", (req, res) => {
   res.send("Hello from backend");
 });
