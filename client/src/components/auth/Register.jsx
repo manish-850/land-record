@@ -14,9 +14,7 @@ export default function Login() {
 
   return (
     <div className="h-full w-full flex items-center justify-center">
-      <div
-        className="w-full max-w-sm bg-white border border-neutral-200 shadow-lg rounded-2xl flex flex-col gap-4 py-5"
-      >
+      <div className="w-full max-w-sm bg-[#f8ffe8]  border border-neutral-200 shadow-lg rounded-2xl flex flex-col gap-4 py-5">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-neutral-900">
             Create new account
@@ -79,7 +77,9 @@ export default function Login() {
               </Button>
             </div>
 
-            <Button type="submit">Register</Button>
+            <Button type="submit" className="bg-[#84994F]">
+              Register
+            </Button>
 
             <div className="text-center mt-2">
               <p className="text-xs text-zinc-500">

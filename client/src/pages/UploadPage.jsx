@@ -28,7 +28,7 @@ const UploadPage = () => {
           </Button>
         </div>
       )}
-      <div className="w-100 h-100 shadow-xl rounded-xl border overflow-hidden relative">
+      <div className="w-100 h-100 shadow-xl bg-[#f8ffe8] rounded-xl border overflow-hidden relative">
         <div className="flex flex-col w-full h-full gap-6 px-8 py-4">
           <div>
             <h4>Add new land record</h4>
@@ -85,8 +85,10 @@ const UploadPage = () => {
             )}
 
             <div className="w-full flex items-center justify-end gap-4">
-              <Button variant="secondary">Cancel</Button>
-              <Button>Upload</Button>
+              <Button variant="secondary" className="bg-[#d2e99c]">
+                Cancel
+              </Button>
+              <Button className="bg-[#84994F]">Upload</Button>
             </div>
           </div>
         </div>
