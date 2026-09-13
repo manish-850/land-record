@@ -3,29 +3,34 @@ import { Button } from "@/components/ui/button";
 import { Upload, FileText, Trash, View, X } from "lucide-react";
 import { useRef, useState } from "react";
 import { extractionHandler } from "@/api/ocr.api";
+import Record from "@/components/landRecord/Record";
 
 const UploadPage = () => {
   const fileRef = useRef(null);
   const [fileUrl, setFileUrl] = useState(null);
   const [file, setFile] = useState(null);
   const [extractedData, setExtractedData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [isPreviewed, setIsPreviewed] = useState(false);
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!file) return;
 
     try {
+      setIsLoading(true);
       const formData = new FormData();
       formData.append("file", file);
       const data = await extractionHandler(formData);
-      console.log(data)
+      console.log(data);
       setExtractedData(data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
-    <div className="flex h-screen w-full items-center justify-center">
+    <div className="flex min-h-screen w-full flex-col items-center py-24 gap-8">
       {file && isPreviewed && (
         <div className="w-full h-full absolute top-0 left-0 z-99 flex justify-center items-center py-5">
           <iframe
@@ -44,7 +49,7 @@ const UploadPage = () => {
           </Button>
         </div>
       )}
-      <div className="w-100 h-100 shadow-xl bg-[#f8ffe8] rounded-xl border overflow-hidden relative">
+      <div className="w-100 h-100 shrink-0 shadow-xl bg-[#f8ffe8] rounded-xl border overflow-hidden relative">
         <div className="flex flex-col w-full h-full gap-6 px-8 py-4">
           <div>
             <h4>Add new land record</h4>
@@ -110,6 +115,25 @@ const UploadPage = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="w-full flex-1 flex flex-col gap-4 items-center">
+        <div className="w-[80%] h-10 flex">
+          <div className="flex w-full">
+            <p className="flex-1 text-sm">Field</p>
+            <p className="flex-1 text-sm">Value</p>
+            <p className="flex-1 text-sm">Confidence</p>
+          </div>
+        </div>
+        {isLoading && <div>Loading</div>}
+        {!isLoading && extractedData && (
+          <div className="w-[80%] flex flex-col">
+            {Object.entries(extractedData.field_details).map(
+              ([field, value]) => {
+                return <Record field={field} value={value} />;
+              },
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
