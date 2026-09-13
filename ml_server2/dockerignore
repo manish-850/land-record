@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+.env
+*.png
+*.jpg
+*.jpeg
+debug/
+output/
+outputs/
+tmp/
+*.json
+!package.json

@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: bhumisetu-ml-server
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter          # torch + transformers need more than the free 512MB RAM tier
+    healthCheckPath: /health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false         # set manually in the Render dashboard, never in git
+      - key: GEMINI_MODEL
+        value: gemini-3.6-flash
