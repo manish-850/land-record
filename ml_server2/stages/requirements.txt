@@ -1,0 +1,17 @@
+# --- OCR stage ---
+pytesseract>=0.3.10
+Pillow>=10.0.0
+
+# --- Classifier stage (DETR layout model) ---
+torch>=2.1.0
+transformers>=4.40.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# --- LLM stage ---
+google-genai>=0.3.0
+
+# --- API ---
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9

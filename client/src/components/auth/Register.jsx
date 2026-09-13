@@ -84,10 +84,7 @@ export default function Login() {
             <div className="text-center mt-2">
               <p className="text-xs text-zinc-500">
                 Already have an account?{"  "}
-                <Link
-                  to="/login"
-                  className="underline underline-offset-4 cursor-pointer text-black"
-                >
+                <Link to="/login" className="cursor-pointer text-black">
                   Login
                 </Link>
               </p>

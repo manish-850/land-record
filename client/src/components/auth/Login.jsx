@@ -13,9 +13,7 @@ export default function Login() {
 
   return (
     <div className="h-full w-full flex items-center justify-center">
-      <div
-        className="w-full max-w-sm bg-[#f8ffe8] border border-neutral-200 shadow-lg rounded-2xl py-5"
-      >
+      <div className="w-full max-w-sm bg-[#f8ffe8] border border-neutral-200 shadow-lg rounded-2xl py-5">
         <div className="text-center pb-2">
           <h1 className="text-2xl font-bold text-neutral-900">Welcome Back</h1>
         </div>
@@ -65,15 +63,14 @@ export default function Login() {
               </Button>
             </div>
 
-            <Button type="submit" className="bg-[#84994F]">Login</Button>
+            <Button type="submit" className="bg-[#84994F]">
+              Login
+            </Button>
 
             <div className="text-center mt-2">
               <p className="text-xs text-zinc-500">
                 Don't have an account?{"  "}
-                <Link
-                  to="/register"
-                  className="underline underline-offset-4 cursor-pointer text-black"
-                >
+                <Link to="/register" className="cursor-pointer text-black">
                   Register
                 </Link>
               </p>

@@ -1,0 +1,101 @@
+# ============================================================
+# Virtual environment
+# ============================================================
+venv/
+env/
+.venv/
+ENV/
+
+# ============================================================
+# Python bytecode / cache
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ============================================================
+# Secrets / environment variables
+#
+# NEVER commit your GEMINI_API_KEY or any other credential.
+# Keep a .env.example with empty/placeholder values instead,
+# and load real values from a local .env or the shell env.
+# ============================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ============================================================
+# Downloaded model weights / caches
+#
+# The DETR layout model (~hundreds of MB) gets downloaded and
+# cached locally the first time classifier_stage.load_model()
+# runs. Never commit this -- let each environment download it
+# once and cache it itself.
+# ============================================================
+.cache/
+huggingface_cache/
+~/.cache/huggingface/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+
+# ============================================================
+# Pipeline input/output data
+#
+# Uploaded scan images, OCR dumps, and generated JSON results
+# are runtime artifacts, not source code -- and land-record
+# images/JSON may contain personal data (names, addresses),
+# so keep them out of version control entirely.
+# ============================================================
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.bmp
+!docs/**/*.png
+!docs/**/*.jpg
+
+*.json
+!package.json
+!package-lock.json
+
+debug/
+output/
+outputs/
+tmp/
+temp/
+bhumisetu_*/
+
+# ============================================================
+# Logs
+# ============================================================
+*.log
+logs/
+
+# ============================================================
+# IDE / editor
+# ============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ============================================================
+# OS files
+# ============================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================
+# Packaging / build artifacts
+# ============================================================
+build/
+dist/
+*.egg-info/

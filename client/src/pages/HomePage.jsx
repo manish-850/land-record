@@ -56,7 +56,7 @@ export default function HomePage() {
               "https://i.pinimg.com/1200x/eb/a2/e5/eba2e5e96e59e6aa6579f8a467aab52d.jpg"
             }
             alt="Document Digitization"
-            className="w-55 h-100 z-2 shadow-[0_22px_35px_-8px_rgba(0,0,0,0.18)] -ml-10"
+            className="w-55 h-100 z-2 shadow-[0_22px_35px_-8px_rgba(0,0,0,0.18)] -ml-10 grayscale"
           />
           <ImgCard
             src={
