@@ -43,6 +43,7 @@ import uuid
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from pipeline import run_pipeline, FIELDS
 from stages import ocr_stage, classifier_stage, label_stage, table_stage, llm_stage
@@ -51,6 +52,14 @@ app = FastAPI(
     title="BhumiSetu Extraction API",
     description="OCR -> layout classification -> label/table/LLM extraction -> merge, for Hindi land records.",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 _pipeline_lock = threading.Lock()
