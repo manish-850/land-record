@@ -1,6 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth.route.js";
+import ocrRouter from "./routes/ocr.route.js";
 import "dotenv/config";
 import cors from "cors";
 export const app = express();
@@ -18,3 +19,4 @@ app.get("/", (req, res) => {
   res.send("Hello from backend");
 });
 app.use("/api/auth", authRouter);
+app.use("/api/ocr", ocrRouter);

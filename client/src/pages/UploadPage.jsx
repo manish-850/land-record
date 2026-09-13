@@ -2,12 +2,28 @@ import { InputField } from "@/components/auth/InputField";
 import { Button } from "@/components/ui/button";
 import { Upload, FileText, Trash, View, X } from "lucide-react";
 import { useRef, useState } from "react";
+import { extractionHandler } from "@/api/ocr.api";
 
 const UploadPage = () => {
   const fileRef = useRef(null);
   const [fileUrl, setFileUrl] = useState(null);
   const [file, setFile] = useState(null);
+  const [extractedData, setExtractedData] = useState(null);
   const [isPreviewed, setIsPreviewed] = useState(false);
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    if (!file) return;
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const data = await extractionHandler(formData);
+      console.log(data)
+      setExtractedData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="flex h-screen w-full items-center justify-center">
       {file && isPreviewed && (
@@ -88,7 +104,9 @@ const UploadPage = () => {
               <Button variant="secondary" className="bg-[#d2e99c]">
                 Cancel
               </Button>
-              <Button className="bg-[#84994F]">Upload</Button>
+              <Button onClick={submitHandler} className="bg-[#84994F]">
+                Upload
+              </Button>
             </div>
           </div>
         </div>
