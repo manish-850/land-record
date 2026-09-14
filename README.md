@@ -6,14 +6,6 @@ layout detection, and LLM-assisted extraction.
 
 **Live demo:** [land-record-gold.vercel.app](https://land-record-gold.vercel.app)
 
->  **Note to maintainer:** this README was drafted from the repo's folder
-> structure (`client`, `server`, `ml_server`, `ml_server2`) since I didn't
-> have direct access to read file contents inside each service. Sections
-> marked with  are placeholders — please confirm/edit the exact framework,
-> ports, and env vars used in `client`, `server`, and `ml_server2` before
-> publishing. The `ml_server` section describing the OCR/extraction pipeline
-> reflects what we built together and should be accurate.
-
 ---
 
 ## What it does
